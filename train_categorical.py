@@ -98,13 +98,13 @@ def train_or_eval_model(model,loss_function, dataloader, epoch, optimizer=None, 
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser("Trains a categorical model for sentiment data with 1 as positive sentiment and 0 as negative sentiment")
-    parser.add_argument('--no-cuda', action='store_true', default=True, help='does not use GPU')
+    parser.add_argument('--no-cuda', action='store_true', default=False, help='does not use GPU')
     parser.add_argument('--lr', type=float, default=0.0001, metavar='LR', help='learning rate')
     parser.add_argument('--l2', type=float, default=0.00001, metavar='L2', help='L2 regularization weight')
     parser.add_argument('--rec-dropout', type=float, default=0.1, metavar='rec_dropout', help='rec_dropout rate')
     parser.add_argument('--dropout', type=float, default=0.5, metavar='dropout', help='dropout rate')
-    parser.add_argument('--batch-size', type=int, default=32, metavar='BS', help='batch size') # original default=128
-    parser.add_argument('--epochs', type=int, default=5, metavar='E', help='number of epochs') # original default=50
+    parser.add_argument('--batch-size', type=int, default=128, metavar='BS', help='batch size') # original default=128
+    parser.add_argument('--epochs', type=int, default=20, metavar='E', help='number of epochs') # original default=50
     parser.add_argument('--class-weight', action='store_true', default=True, help='class weight')
     parser.add_argument('--log_dir', type=str, default='logs/mosei_categorical', help='Directory for tensorboard logs')
     args = parser.parse_args()
